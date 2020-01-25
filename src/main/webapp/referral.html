@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>X-workz</title>
+<link rel="shortcut icon" href="assets/images/Logo.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords"
+	content="Institute Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+
+<link href="css/final.css" rel="stylesheet">
+
+<!-- <link rel="stylesheet"
+	href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"> -->
+<style type="text/css">
+#submit {
+	margin-bottom: 5%;
+	margin-top: 2%;
+}
+
+.error {
+	color: red;
+	font-size: 12px;
+	margin-left: 8px;
+}
+</style>
+</head>
+
+<body>
+	<div class="loadingProgressBar">
+		<center>
+			<i class="fa fa-circle-o-notch fa-spin"
+				style="font-size: 77px; color: #e36c0a"></i>
+		</center>
+	</div>
+	
+	<div class="banner2 inner-banner banner_height" id="home">
+		<div class="container">
+			<header>
+				<div class="header-bottom-w3layouts">
+					<div class="main-w3ls-logo align-middle">
+						<div class="x_w_Icon">
+							<h1>
+								<a href="index.html"><img src="assets/images/Logo.png"
+									height="100px" width="220px" /></a>
+							</h1>
+						</div>
+					</div>
+					<nav class="navbar navbar-default">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed"
+								data-toggle="collapse"
+								data-target="#bs-example-navbar-collapse-1"
+								aria-expanded="false">
+								<span class="sr-only">Toggle navigation</span> <span
+									class="icon-bar"></span> <span class="icon-bar"></span> <span
+									class="icon-bar"></span>
+							</button>
+						</div>
+						<div style="color: white; text-align: right;"
+							class="contact_details">
+							<div style="display: inline;">
+								<span class="fa fa-phone" style="color: white"></span> <span
+									style="color: white; text-align:">&nbsp;&nbsp;+91-8048669257/
+									9886971480 &nbsp;</span>
+							</div>
+							<div style="display: inline;">
+								<span class=" fa
+								fa-envelope" style="color: white;">
+								</span> <span style="color: white;">contact@x-workz.in</span>
+							</div>
+						</div>
+						<div>
+							<div class="marquee_notification">
+								<div class="centered" style="color: white;">
+									<marquee class="centered" id="floatingText"
+										style="color: #e36c0a; font-weight: bold;">Hi.....
+										This is x-workz development center</marquee>
+								</div>
+							</div>
+							<div class="navbar-collapse collapse bottom-align"
+								id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav navbar-right">
+									<li><a href="index.html">Home</a></li>
+									<li><a href="about.html">About</a></li>
+									<li><a href="courses.html">Courses</a></li>
+									<li><a href="contact.html">Contact</a></li>
+									<li><a href="gallery.html">Gallery</a></li>
+									<li><a class="active" href="referral.html">Referral</a></li>
+								</ul>
+							</div>
+						</div>
+
+					</nav>
+
+				</div>
+				<div class="clearfix"></div>
+			</header>
+		</div>
+	</div>
+	<div class="contact-page">
+		<div class="container">
+			<h5 class="main-w3l-title">Referral Details</h5>
+			<div class="form-bg" style="margin-bottom: 60px;">
+				<form id="refferal" method="post">
+
+					<div class="col-md-6 contact-fields">
+						<input type="text" name="name" id="name" placeholder="Enter Name"
+							required="">
+					</div>
+
+
+					<div class="col-md-6 contact-fields">
+						<input type="text" name="email" id="email"
+							placeholder="Enter Email" required="">
+					</div>
+
+
+
+					<div class="col-md-6 contact-fields">
+						<input type="text" name="companyName" id="companyName"
+							placeholder="Enter Company Name" required="">
+					</div>
+
+
+					<div class="col-md-6 contact-fields">
+						<input type="text" class="datepick" name="lastDate" id="lastDate"
+							placeholder="Select Last Date" required="">
+					</div>
+
+					<!-- 	<div class="col-md-6 contact-fields">
+						<input type="text" class="datepick" name="lastDate"
+								id="lastDate" placeholder="Select Last Date" required="">
+					</div>
+					 -->
+
+
+					<!-- 	<div class="form-group">
+						<label for="technicalSkill">Technical Skill: </label> <input
+							type="text" class="form-control" id="technicalSkill"
+							name="technicalSkill" placeholder="Enter Technical Skill">
+					</div> -->
+
+					<div class="col-md-6 contact-fields">
+						<select
+							class="col-md-6 form-control input-group-lg contact-fields"
+							name="empType" id="empType">
+							<option value="">Select Employee Type</option>
+							<option value="freshers">Freshers</option>
+							<option value="experience">Experience</option>
+						</select>
+					</div>
+					<div class="col-md-6 contact-fields">
+						<input type="text" id="position" name="position"
+							placeholder="Enter Designation">
+					</div>
+
+
+
+					<div class="col-md-6 freshers">
+						<select class="form-control input-group-lg contact-fields"
+							id="yearOfPassout" name="yearOfPassout">
+							<option>Select Year of passout</option>
+						</select>
+					</div>
+
+
+					<div class="col-md-6 freshers">
+						<select class="form-control input-group-lg contact-fields"
+							name="percentage" id="percentage">
+							<option value="">Select Criteria</option>
+							<option value="> 60% Throughout">> 60% Through out</option>
+							<option value="> 60% Degree throughout">> 60% Degree
+								through out</option>
+							<option value="< 60% Throughout">< 60% Through out</option>
+							<option value="< 60% Degree throughout">< 60% Degree
+								through out</option>
+						</select>
+					</div>
+
+
+					<div class="col-md-6 contact-fields exp">
+						<input type="text" id="yearOfExp" name="yearOfExp"
+							placeholder="Enter Year of Experience">
+					</div>
+
+
+
+
+					<div class="col-md-6 contact-fields">
+						<input type="text" id="jobCode" name="jobCode"
+							placeholder="Enter Job Code">
+					</div>
+					<div class="col-md-6 contact-fields">
+						<input type="text" id="positionNum" name="positionNum"
+							placeholder="Enter Number of Position">
+					</div>
+					<div class="col-md-6 contact-fields">
+						<input type="text" class="technicalSkill" name="technicalSkill"
+							id="technicalSkill" placeholder="Enter Technical Skill"
+							required="">
+					</div>
+
+					<div class="col-md-12 contact-fields">
+						<textarea name="comments" id="otherComment" rows="4"
+							placeholder="Any mobile number for refferal,empid if required"></textarea>
+					</div>
+
+					<button id="refSubmit" type="submit"
+						class="btn btn-lg btn-block referral submitReff">
+						<b>Submit</b>
+					</button>
+					<!-- <input type="submit" value="submit" class="btn btn-primary btn-lg btn-block invisible"> -->
+					<!-- <div class="mt-2"></div> -->
+				</form>
+			</div>
+		</div>
+		<div class="footer-agileits-w3layouts">
+			<div class="container">
+				<div class="btm-logo-w3ls">
+					<h2>
+						<a href="index.html"> <img src="assets/images/Logo.png"
+							height="100px" width="220px" />
+						</a>
+					</h2>
+				</div>
+				<div class="subscribe-w3ls">
+					<h6>Let us inform you about everything important directly.</h6>
+					<form action="#" method="post">
+						<div class="col-md-8 col-sm-8 col-xs-8 input-flds-w3-agile">
+							<input type="email" name="Email" placeholder="Email" required=""
+								id="emailSubField">
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-4 input-flds-w3-agile">
+							<input type="button" value="Subscribe" id="subscribe"
+								class="subscribeForm">
+							<button type="submit" hidden="true" id="submit">submit</button>
+						</div>
+						<div class="clearfix"></div>
+					</form>
+				</div>
+				<div class="social-icons-agileits">
+					<ul>
+						<li><a
+							href="https://www.facebook.com/xworkzdevelopmentcenter/"><span
+								class="fa fa-facebook"></span></a></li>
+						<li><a href="https://twitter.com/workz_x"><span
+								class="fa fa-twitter"></span></a></li>
+					</ul>
+				</div>
+
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div class="copyright-w3layouts">
+			<div class="container">
+				<p>&copy; 2019 X-Workz . All Rights Reserved</p>
+			</div>
+		</div>
+
+	</div>
+	<a href="#home" class="scroll" id="toTop" style="display: block;">
+		<span id="toTopHover" style="opacity: 1;"> </span>
+	</a>
+
+<script type="text/javascript" src="js/mainJS.js"></script>
+
+</body>
+
+
+</html>
