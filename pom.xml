@@ -20,11 +20,10 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.2.1</version>
 			</plugin>
-
 			<plugin>
-				<groupId>com.google.cloud.tools</groupId>
+				<groupId>com.google.appengine</groupId>
 				<artifactId>appengine-maven-plugin</artifactId>
-				<version>1.2.1</version>
+				<version>1.9.78</version>
 			</plugin>
 		</plugins>
 	</build>
