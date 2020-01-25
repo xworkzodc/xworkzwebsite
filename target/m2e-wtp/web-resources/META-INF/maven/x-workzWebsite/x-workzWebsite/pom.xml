@@ -25,6 +25,9 @@
 				<groupId>com.google.cloud.tools</groupId>
 				<artifactId>appengine-maven-plugin</artifactId>
 				<version>2.2.0</version>
+				<configuration>
+					<deploy.projectId>myapps-266210</deploy.projectId>
+				</configuration>
 			</plugin>
 			<!-- <plugin>
 				<groupId>com.google.cloud.tools</groupId>
