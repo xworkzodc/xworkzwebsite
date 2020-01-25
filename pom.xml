@@ -20,11 +20,22 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.2.1</version>
 			</plugin>
+			
 			<plugin>
-				<groupId>com.google.appengine</groupId>
+				<groupId>com.google.cloud.tools</groupId>
 				<artifactId>appengine-maven-plugin</artifactId>
-				<version>1.9.78</version>
+				<version>2.2.0</version>
 			</plugin>
+			<!-- <plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>appengine-maven-plugin</artifactId>
+				<version>2.2.0</version>
+				<configuration>
+					<stage.enableJarSplitting>true</stage.enableJarSplitting>
+					<deploy.stopPreviousVersion>true</deploy.stopPreviousVersion>
+					<cloudSdkPath>/usr/foo/path/to/cloudsdk</cloudSdkPath>
+				</configuration>
+			</plugin> -->
 		</plugins>
 	</build>
 </project>
