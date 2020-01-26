@@ -27,7 +27,7 @@
 				<version>2.2.0</version>
 				<configuration>
 					<deploy.projectId>myapps-266210</deploy.projectId>
-					<deploy.version>GCLOUD_CONFIG</deploy.version>
+					<deploy.version>v01</deploy.version>
 				</configuration>
 			</plugin>
 			<!-- <plugin>
