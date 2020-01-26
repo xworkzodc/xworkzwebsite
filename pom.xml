@@ -28,11 +28,9 @@
 				<configuration>
 					<deploy.projectId>myapps-266210</deploy.projectId>
 					<deploy.version>v01</deploy.version>
-					<configuration>
-						<stage.enableJarSplitting>true</stage.enableJarSplitting>
-						<deploy.stopPreviousVersion>true</deploy.stopPreviousVersion>
-						<cloudSdkPath>/usr/foo/path/to/cloudsdk</cloudSdkPath>
-					</configuration>
+					<stage.enableJarSplitting>true</stage.enableJarSplitting>
+					<deploy.stopPreviousVersion>true</deploy.stopPreviousVersion>
+					<cloudSdkPath>/usr/foo/path/to/cloudsdk</cloudSdkPath>
 				</configuration>
 			</plugin>
 			<!-- <plugin> <groupId>com.google.cloud.tools</groupId> <artifactId>appengine-maven-plugin</artifactId> 
