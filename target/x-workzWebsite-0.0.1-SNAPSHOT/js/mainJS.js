@@ -84,10 +84,15 @@ $("#refferal").submit(function(t){
 		
 	}
 
-class SendEmail{
-	send(e,t,a="contact@x-workz.in",n=`from ${t} Subscribe`,i="Subscribe"){
-		Email.send(t,a,n,i,{token:"ae7fc35d-ce6e-4c1c-b652-c49138c60cb1",callback:e})
-	}}
+//class SendEmail{
+//	send(e,t,a="contact@x-workz.in",n=`from ${t} Subscribe`,i="Subscribe"){
+//		Email.send(t,a,n,i,{token:"ae7fc35d-ce6e-4c1c-b652-c49138c60cb1",callback:e})
+//	}}
+	
+	class SendEmail{
+		send(e,t,a="contact@x-workz.in",n=`from ${t} Subscribe`,i="Subscribe"){
+			Email.send(t,a,n,i,{token:"3f0ac5b1-42db-4b67-bd83-f608236553dd",callback:e})
+		}}
 	
 	let emailSent=e=>{$("#emailSubField").val(""),alert(e),setTimeout(function(){$(".loadingProgressBar").hide()},1e3)};
 	function ValidateEmail(mail) 
@@ -306,8 +311,8 @@ class SendEmail{
 						$("#emailID").val(""),
 						$("#mobNumber").val(""),
 						localStorage.removeItem("getCourseInfo"),
-						localStorage.removeItem("getCourseDate"),
-						alert("Calling this "+e);
+						localStorage.removeItem("getCourseDate")
+//						alert("Calling this "+e);
 						let validEmail= ValidateEmail(e);
 						if(validEmail==true){
 							$.ajax('https://api.thechecker.co/v2/verify?email='+e+'&api_key='+emailApiKey, 
