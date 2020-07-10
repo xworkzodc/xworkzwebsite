@@ -4,6 +4,6 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
   <welcome-file-list>
-    <welcome-file>X-workz-Software-Training-Center.html</welcome-file>
+    <welcome-file>X-workz-java-testing-development-software-training-center.html</welcome-file>
   </welcome-file-list>
 </web-app>
