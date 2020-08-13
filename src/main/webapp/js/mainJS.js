@@ -15320,7 +15320,8 @@ function checkEmailNSendMailForReferal(e, t, a, n, i, o, s, r, l, d, c, p, u) {
         success: function(data) { // success callback function
             // console.log(data.result);
             if (data.result == 'deliverable') {
-                new SendContactEmail().send(emailSent("We will be shortly getting in touch with you......."), t, "xworkzcontact@gmail.com", `we have job oppening...`, `we got the requirement from ` + e + ` for ` + c + ` details is given below: <pre>Position is ` + a + ` <pre>Required Skill is ` + i + `<pre>job code is ` + u + `<pre>year of experience ` + n + ` <pre>total number of position ` + r + ` <pre>year of passout ` + o + ` <pre>criteria is ` + d + `<pre>employee type is  ` + l + `<pre>person's email id ` + t + ` <pre>Last registration date ` + s + `<pre>other comment ` + p)
+            	 var v= ["xworkzcontact@gmail.com","vinay@x-workz.in"];
+                new SendContactEmail().send(emailSent("We will be shortly getting in touch with you......."), t, v, `we have job oppening...`, `we got the requirement from ` + e + ` for ` + c + ` details is given below: <pre>Position is ` + a + ` <pre>Required Skill is ` + i + `<pre>job code is ` + u + `<pre>year of experience ` + n + ` <pre>total number of position ` + r + ` <pre>year of passout ` + o + ` <pre>criteria is ` + d + `<pre>employee type is  ` + l + `<pre>person's email id ` + t + ` <pre>Last registration date ` + s + `<pre>other comment ` + p)
                 setTimeout(function() {
                     $(".loadingProgressBar").hide()
                 }, 1e3)
@@ -15386,7 +15387,8 @@ function checkEmailAndSendMail(email) {
             console.log(data);
             // console.log(data.result);
             if (data.result == 'deliverable') {
-                new SendEmail().send(emailSent("Subscribed Successfully"), email, "xworkzsubscribe@gmail.com");
+            	var v= ["xworkzsubscribe@gmail.com","vinay@x-workz.in"];
+                new SendEmail().send(emailSent("Subscribed Successfully"), email, v);
                 setTimeout(function() {
                     $(".loadingProgressBar").hide()
                 }, 1e3)
@@ -15458,7 +15460,7 @@ function setGalleryImages(e) {
     fetch(e.gallery).then(e => e.json()).then(e => {
         for (var t = 0; t < e.images.length; t++) {
             key = Object.keys(e.images[t]), image = e.images[t][key];
-            var a = `<div class="col-md-12 text-center" style="margin-bottom: 2%;"><h2>${key}</h2></div> <div class="col-md-12" style="margin-bottom:5%;"> 
+            var a = `<div class="col-md-12 text-center" style="margin-bottom: 3%;margin-top: 3%"><h2>${key}</h2></div> <div class="col-md-12" style="margin-bottom:5%;"> 
 		            <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3500" id="myCarousel` + t + `">
 		             <div class="carousel-inner">`,
                 n = "";
@@ -15485,7 +15487,7 @@ function setReviewsImages(e) {
         for (var t = 0; t < e.images.length; t++) {
         	console.log('inside json='+e.images[t]);
             key = Object.keys(e.images[t]), image = e.images[t][key];
-            var a = `<div class="col-md-12 text-center" style="margin-bottom: 2%;"><h2>${key}</h2></div> <div class="col-md-12" style="margin-bottom:5%;"> 
+            var a = `<div class="col-md-12 text-center" style="margin-bottom: 3%;margin-top: 3%"><h2>${key}</h2></div> <div class="col-md-12" style="margin-bottom:5%;"> 
 		            <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3500" id="myCarousel` + t + `">
 		             <div class="carousel-inner">`,
                 n = "";
@@ -15512,7 +15514,7 @@ function setPlacedImages(e) {
         for (var t = 0; t < e.images.length; t++) {
         	console.log('inside json='+e.images[t]);
             key = Object.keys(e.images[t]), image = e.images[t][key];
-            var a = `<div class="col-md-12 text-center" style="margin-bottom: 2%;"><h2>${key}</h2></div> <div class="col-md-12" style="margin-bottom:5%;"> 
+            var a = `<div class="col-md-12 text-center" style="margin-bottom: 3%;margin-top: 3%"><h2>${key}</h2></div> <div class="col-md-12" style="margin-bottom:5%;"> 
 		            <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3500" id="myCarousel` + t + `">
 		             <div class="carousel-inner">`,
                 n = "";
@@ -15620,7 +15622,8 @@ $("#sendFormData").click((event) => {
                 if (data.result == 'deliverable') {
                     if ($(".loadingProgressBar").show(),
                         "" != e && "" != t && "" != a && "" != n) {
-                        new SendContactEmail().send(done, t, "xworkzcontact@gmail.com", `${`Message from ${e}  `} ${a}`, `Hi X-workz,
+                    	var v=["xworkzcontact@gmail.com","vinay@x-workz.in"];
+                        new SendContactEmail().send(done, t, v, `${`Message from ${e}  `} ${a}`, `Hi X-workz,
 
 									This is ${t}, ${n}.
 
@@ -15772,9 +15775,10 @@ $("#getCourse").click(() => {
                         // console.log(data.result);
                         if (data.result == 'deliverable') {
                             setTimeout(() => {
+                            	    var v= ["xworkzcontact@gmail.com","vinay@x-workz.in"];
                                     var i = `Hi
 											Please Send the Course contents for ${a} (${n}) to '${e}' contact number is ${t} . Thanks`;
-                                    new SendContactEmail().send(emailSent("We Will be Shortly Sending you course Content to Your Email"), e, "xworkzcontact@gmail.com", `Course Contents for ${a} (${n}) `, i)
+                                    new SendContactEmail().send(emailSent("We Will be Shortly Sending you course Content to Your Email"), e, v, `Course Contents for ${a} (${n}) `, i)
                                 }, 500),
                                 $("#courseModal").modal("hide"),
                                 setTimeout(function() {
@@ -15831,7 +15835,8 @@ $("#getCourse").click(() => {
                     if (validPersonEmail == true && validSharedPersonEmail == true) {
                         alert('given email is valid.............')
                         // checkNdSendSharedEmail(event,e,t);
-                        new SendContactEmail().send(emailSent("We will be shortly sending course content to your friend's Email \nThank you for sharing....."), e, "xworkzcontact@gmail.com",
+                         var v= ["xworkzcontact@gmail.com","vinay@x-workz.in"];
+                        new SendContactEmail().send(emailSent("We will be shortly sending course content to your friend's Email \nThank you for sharing....."), e, v,
                             `Course Contents, reffered for ${a} (${n})`,
 
                             `Please Send the Course contents for ${a} (${n}) to  ${t}  from  ${e}. Thanks`);
@@ -16007,7 +16012,8 @@ function checkFileDataFromTheCheckerIdNSharedMail(event, e, t, id) {
             if (data.status.deliverable == 2) {
                 let a = localStorage.getItem("getCourseInfo"),
                     n = localStorage.getItem("getCourseDate");
-                new SendContactEmail().send(emailSent("We will be shortly sending course content to your friend's Email \nThank you for sharing....."), e, "xworkzcontact@gmail.com",
+                var v= ["xworkzcontact@gmail.com","vinay@x-workz.in"];
+                new SendContactEmail().send(emailSent("We will be shortly sending course content to your friend's Email \nThank you for sharing....."), e, v,
                     `Course Contents, reffered for ${a} (${n})`,
 
                     `Please Send the Course contents for ${a} (${n}) to  ${t}  from  ${e}. Thanks`);
