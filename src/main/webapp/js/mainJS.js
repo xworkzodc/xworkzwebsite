@@ -15320,7 +15320,8 @@ function checkEmailNSendMailForReferal(e, t, a, n, i, o, s, r, l, d, c, p, u) {
         success: function(data) { // success callback function
             // console.log(data.result);
             if (data.result == 'deliverable') {
-            	 var v= ["xworkzcontact@gmail.com","vinay@x-workz.in","contact@x-workz.in","akshara.xworkz@gmail.com"];
+
+            	var v= [contactMailId,xworkzMailId,vinayMailId,aksharaMailId];
                 new SendContactEmail().send(emailSent("We will be shortly getting in touch with you......."), t, v, `we have job oppening...`, `we got the requirement from ` + e + ` for ` + c + ` details is given below: <pre>Position is ` + a + ` <pre>Required Skill is ` + i + `<pre>job code is ` + u + `<pre>year of experience ` + n + ` <pre>total number of position ` + r + ` <pre>year of passout ` + o + ` <pre>criteria is ` + d + `<pre>employee type is  ` + l + `<pre>person's email id ` + t + ` <pre>Last registration date ` + s + `<pre>other comment ` + p)
                 setTimeout(function() {
                     $(".loadingProgressBar").hide()
@@ -15345,7 +15346,7 @@ function checkEmailNSendMailForReferal(e, t, a, n, i, o, s, r, l, d, c, p, u) {
 }
 
 class SendContactEmail {
-    send(e, t, a = "xworkzcontact@gmail.com", n = `from ${t} Subscribe`, i = "Contact") {
+    send(e, t, a = contactMailId, n = `from ${t} Subscribe`, i = "Contact") {
         Email.send(t, a, n, i, {
             token: "47bccf2b-9914-4560-b62e-2db77ce58f06",
             callback: e
@@ -15354,7 +15355,7 @@ class SendContactEmail {
 }
 
 class SendEmail {
-    send(e, t, a = "xworkzsubscribe@gmail.com", n = `from ${t} Subscribe`, i = "Subscribe") {
+    send(e, t, a = subscribersMailId, n = `from ${t} Subscribe`, i = "Subscribe") {
         Email.send(t, a, n, i, {
             token: "4699205c-db5f-4041-9e91-1beba28d97ec",
             callback: e
@@ -15387,7 +15388,8 @@ function checkEmailAndSendMail(email) {
             console.log(data);
             // console.log(data.result);
             if (data.result == 'deliverable') {
-            	var v= ["xworkzsubscribe@gmail.com","vinay@x-workz.in","contact@x-workz.in","akshara.xworkz@gmail.com"];
+                console.log("subscribersMailId="+subscribersMailId);
+            	var v= [subscribersMailId,xworkzMailId,vinayMailId,aksharaMailId];
                 new SendEmail().send(emailSent("Subscribed Successfully"), email, v);
                 setTimeout(function() {
                     $(".loadingProgressBar").hide()
@@ -15546,6 +15548,26 @@ function setGalleryvideos(e) {
     })       
 };
 
+var subscribersMailId;
+var contactMailId;
+var vinayMailId;
+var aksharaMailId;
+var xworkzMailId;
+
+async function setEmailIds() {
+    var t = await getMasterProd();
+    fetch(t.mailIds).then(t => t.json()).then(t => {
+    	this.subscribersMailId = t.subscribersMailId;
+    	this.contactMailId = t.contactMailId;
+    	this.vinayMailId = t.vinayMailId;
+    	this.aksharaMailId =t.aksharaMailId;
+    	this.xworkzMailId=t.xworkzMailId;
+    })
+}
+
+var myResult = setEmailIds();
+console.log("checking global subscribersId="+myResult); 
+ 
 function sildeImg() {
     $(".carousel[data-type=\"multi\"] .item").each(function() {
         var e = $(this).next();
@@ -15622,7 +15644,8 @@ $("#sendFormData").click((event) => {
                 if (data.result == 'deliverable') {
                     if ($(".loadingProgressBar").show(),
                         "" != e && "" != t && "" != a && "" != n) {
-                    	var v= ["xworkzcontact@gmail.com","vinay@x-workz.in","contact@x-workz.in","akshara.xworkz@gmail.com"];
+                    	
+                    	var v= [contactMailId,xworkzMailId,vinayMailId,aksharaMailId];
                         new SendContactEmail().send(done, t, v, `${`Message from ${e}  `} ${a}`, `Hi X-workz,
 
 									This is ${t}, ${n}.
@@ -15774,8 +15797,8 @@ $("#getCourse").click(() => {
                         console.log(data);
                         // console.log(data.result);
                         if (data.result == 'deliverable') {
-                            setTimeout(() => {
-                            	    var v= ["xworkzcontact@gmail.com","vinay@x-workz.in","contact@x-workz.in","akshara.xworkz@gmail.com"];
+                            setTimeout(() => {                       	
+                            	    var v= [contactMailId,xworkzMailId,vinayMailId,aksharaMailId];
                                     var i = `Hi
 											Please Send the Course contents for ${a} (${n}) to '${e}' contact number is ${t} . Thanks`;
                                     new SendContactEmail().send(emailSent("We Will be Shortly Sending you course Content to Your Email"), e, v, `Course Contents for ${a} (${n}) `, i)
@@ -15835,7 +15858,7 @@ $("#getCourse").click(() => {
                     if (validPersonEmail == true && validSharedPersonEmail == true) {
                         alert('given email is valid.............')
                         // checkNdSendSharedEmail(event,e,t);
-                        var v= ["xworkzcontact@gmail.com","vinay@x-workz.in","contact@x-workz.in","akshara.xworkz@gmail.com"];
+                            	var v= [contactMailId,xworkzMailId,vinayMailId,aksharaMailId];
                         new SendContactEmail().send(emailSent("We will be shortly sending course content to your friend's Email \nThank you for sharing....."), e, v,
                             `Course Contents, reffered for ${a} (${n})`,
 
@@ -16012,7 +16035,8 @@ function checkFileDataFromTheCheckerIdNSharedMail(event, e, t, id) {
             if (data.status.deliverable == 2) {
                 let a = localStorage.getItem("getCourseInfo"),
                     n = localStorage.getItem("getCourseDate");
-                var v= ["xworkzcontact@gmail.com","vinay@x-workz.in","contact@x-workz.in","akshara.xworkz@gmail.com"];
+            	
+            	var v= [contactMailId,xworkzMailId,vinayMailId,aksharaMailId];
                 new SendContactEmail().send(emailSent("We will be shortly sending course content to your friend's Email \nThank you for sharing....."), e, v,
                     `Course Contents, reffered for ${a} (${n})`,
 
