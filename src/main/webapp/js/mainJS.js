@@ -7642,8 +7642,8 @@ async function setNotification() {
         $("#floatingText").length && (document.getElementById("floatingText").innerHTML = t.notification)
     })
 }
-var testUrl = "https://raw.githubusercontent.com/xworkzodc/JSON/master/master_dev_prod.json",
-    masterUrl = "https://raw.githubusercontent.com/xworkzodc/JSON/master/master_dev_prod.json";
+var testUrl = "https://raw.githubusercontent.com/vinay-coder1/JSON-1/patch-5/master_dev_prod.json",
+    masterUrl = "https://raw.githubusercontent.com/vinay-coder1/JSON-1/patch-5/master_dev_prod.json";
 let getMasterProd = () => fetch(testUrl).then(t => t.json());
 (function(e) {
     "function" == typeof define && define.amd ? define(["jquery"], e) : e(jQuery)
@@ -15320,7 +15320,8 @@ function checkEmailNSendMailForReferal(e, t, a, n, i, o, s, r, l, d, c, p, u) {
         success: function(data) { // success callback function
             // console.log(data.result);
             if (data.result == 'deliverable') {
-            	 var v= ["xworkzcontact@gmail.com","vinay@x-workz.in"];
+            	var v= ["xworkzcontact@gmail.com"];
+            	v.push.apply(v, toMailIds);
                 new SendContactEmail().send(emailSent("We will be shortly getting in touch with you......."), t, v, `we have job oppening...`, `we got the requirement from ` + e + ` for ` + c + ` details is given below: <pre>Position is ` + a + ` <pre>Required Skill is ` + i + `<pre>job code is ` + u + `<pre>year of experience ` + n + ` <pre>total number of position ` + r + ` <pre>year of passout ` + o + ` <pre>criteria is ` + d + `<pre>employee type is  ` + l + `<pre>person's email id ` + t + ` <pre>Last registration date ` + s + `<pre>other comment ` + p)
                 setTimeout(function() {
                     $(".loadingProgressBar").hide()
@@ -15387,7 +15388,8 @@ function checkEmailAndSendMail(email) {
             console.log(data);
             // console.log(data.result);
             if (data.result == 'deliverable') {
-            	var v= ["xworkzsubscribe@gmail.com","vinay@x-workz.in"];
+            	var v= ["xworkzsubscribe@gmail.com"];
+            	v.push.apply(v, toMailIds);
                 new SendEmail().send(emailSent("Subscribed Successfully"), email, v);
                 setTimeout(function() {
                     $(".loadingProgressBar").hide()
@@ -15397,7 +15399,7 @@ function checkEmailAndSendMail(email) {
                 alert('email is invalid please check it again.');
                 setTimeout(function() {
                     $(".loadingProgressBar").hide()
-                }, 1e3);
+                }, 1e3);dew
             }
         },
         error: function(error) { // error callback
@@ -15546,6 +15548,20 @@ function setGalleryvideos(e) {
     })       
 };
 
+var toMailIds = [];
+
+async function setEmailIds() {
+    var e = await getMasterProd();
+    fetch(e.mailIds).then(e => e.json()).then(e => {
+        e.MailIds.forEach(e => { 
+            toMailIds.push(e.mailAddress);   
+    	})
+        return toMailIds;
+    })
+}
+
+var result = setEmailIds();
+ 
 function sildeImg() {
     $(".carousel[data-type=\"multi\"] .item").each(function() {
         var e = $(this).next();
@@ -15621,8 +15637,9 @@ $("#sendFormData").click((event) => {
                 // console.log(data.result);
                 if (data.result == 'deliverable') {
                     if ($(".loadingProgressBar").show(),
-                        "" != e && "" != t && "" != a && "" != n) {
-                    	var v=["xworkzcontact@gmail.com","vinay@x-workz.in"];
+                        "" != e && "" != t && "" != a && "" != n) {                  	
+                    	var v= ["xworkzcontact@gmail.com"];
+                    	v.push.apply(v, toMailIds);
                         new SendContactEmail().send(done, t, v, `${`Message from ${e}  `} ${a}`, `Hi X-workz,
 
 									This is ${t}, ${n}.
@@ -15672,7 +15689,7 @@ function setFacultyDetails(e) {
 								</div>
 							</div>
 						<div class="col-md-7" style="background-color:#f7f4f4;" class="facultyDesc">
-						<ul><b class="facultyName"><span>About</span></b>
+						<ul><b class="facultyName"><span></span></b>
 					    <br/>
 					${createFacultyDescList(e.description).join("")}
 						</ul>
@@ -15774,8 +15791,9 @@ $("#getCourse").click(() => {
                         console.log(data);
                         // console.log(data.result);
                         if (data.result == 'deliverable') {
-                            setTimeout(() => {
-                            	    var v= ["xworkzcontact@gmail.com","vinay@x-workz.in"];
+                            setTimeout(() => {                       	
+                            	    var v= ["xworkzcontact@gmail.com"];
+                            	    v.push.apply(v, toMailIds);
                                     var i = `Hi
 											Please Send the Course contents for ${a} (${n}) to '${e}' contact number is ${t} . Thanks`;
                                     new SendContactEmail().send(emailSent("We Will be Shortly Sending you course Content to Your Email"), e, v, `Course Contents for ${a} (${n}) `, i)
@@ -15833,9 +15851,10 @@ $("#getCourse").click(() => {
                     let validPersonEmail = ValidateEmail(e);
                     let validSharedPersonEmail = ValidateEmail(t);
                     if (validPersonEmail == true && validSharedPersonEmail == true) {
-                        alert('given email is valid.............')
-                        // checkNdSendSharedEmail(event,e,t);
-                         var v= ["xworkzcontact@gmail.com","vinay@x-workz.in"];
+                        alert('given emails are valid.............')
+                        
+                        var v= ["xworkzcontact@gmail.com"];
+                        v.push.apply(v, toMailIds);
                         new SendContactEmail().send(emailSent("We will be shortly sending course content to your friend's Email \nThank you for sharing....."), e, v,
                             `Course Contents, reffered for ${a} (${n})`,
 
@@ -16012,7 +16031,9 @@ function checkFileDataFromTheCheckerIdNSharedMail(event, e, t, id) {
             if (data.status.deliverable == 2) {
                 let a = localStorage.getItem("getCourseInfo"),
                     n = localStorage.getItem("getCourseDate");
-                var v= ["xworkzcontact@gmail.com","vinay@x-workz.in"];
+            	
+            	var v= ["xworkzcontact@gmail.com"];
+            	v.push.apply(v, toMailIds);
                 new SendContactEmail().send(emailSent("We will be shortly sending course content to your friend's Email \nThank you for sharing....."), e, v,
                     `Course Contents, reffered for ${a} (${n})`,
 
