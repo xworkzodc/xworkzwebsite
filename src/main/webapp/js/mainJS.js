@@ -7642,8 +7642,8 @@ async function setNotification() {
         $("#floatingText").length && (document.getElementById("floatingText").innerHTML = t.notification)
     })
 }
-var testUrl = "https://raw.githubusercontent.com/vinay-coder1/JSON-1/patch-5/master_dev_prod.json",
-    masterUrl = "https://raw.githubusercontent.com/vinay-coder1/JSON-1/patch-5/master_dev_prod.json";
+var testUrl = "https://raw.githubusercontent.com/xworkzodc/JSON/master/master_dev_prod.json",
+    masterUrl = "https://raw.githubusercontent.com/xworkzodc/JSON/master/master_dev_prod.json";
 let getMasterProd = () => fetch(testUrl).then(t => t.json());
 (function(e) {
     "function" == typeof define && define.amd ? define(["jquery"], e) : e(jQuery)
