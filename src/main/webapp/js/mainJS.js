@@ -15320,7 +15320,8 @@ function checkEmailNSendMailForReferal(e, t, a, n, i, o, s, r, l, d, c, p, u) {
         success: function(data) { // success callback function
             // console.log(data.result);
             if (data.result == 'deliverable') {
-            	 var v= ["xworkzcontact@gmail.com","vinay@x-workz.in"];
+                var v= ["xworkzcontact@gmail.com"];
+                v.push.apply(v, toMailIds);
                 new SendContactEmail().send(emailSent("We will be shortly getting in touch with you......."), t, v, `we have job oppening...`, `we got the requirement from ` + e + ` for ` + c + ` details is given below: <pre>Position is ` + a + ` <pre>Required Skill is ` + i + `<pre>job code is ` + u + `<pre>year of experience ` + n + ` <pre>total number of position ` + r + ` <pre>year of passout ` + o + ` <pre>criteria is ` + d + `<pre>employee type is  ` + l + `<pre>person's email id ` + t + ` <pre>Last registration date ` + s + `<pre>other comment ` + p)
                 setTimeout(function() {
                     $(".loadingProgressBar").hide()
@@ -15387,7 +15388,8 @@ function checkEmailAndSendMail(email) {
             console.log(data);
             // console.log(data.result);
             if (data.result == 'deliverable') {
-            	var v= ["xworkzsubscribe@gmail.com","vinay@x-workz.in"];
+                var v= ["xworkzsubscribe@gmail.com"];
+                v.push.apply(v, toMailIds);
                 new SendEmail().send(emailSent("Subscribed Successfully"), email, v);
                 setTimeout(function() {
                     $(".loadingProgressBar").hide()
@@ -15397,7 +15399,7 @@ function checkEmailAndSendMail(email) {
                 alert('email is invalid please check it again.');
                 setTimeout(function() {
                     $(".loadingProgressBar").hide()
-                }, 1e3);
+                }, 1e3);dew
             }
         },
         error: function(error) { // error callback
@@ -15461,19 +15463,19 @@ function setGalleryImages(e) {
         for (var t = 0; t < e.images.length; t++) {
             key = Object.keys(e.images[t]), image = e.images[t][key];
             var a = `<div class="col-md-12 text-center" style="margin-bottom: 3%;margin-top: 3%"><h2>${key}</h2></div> <div class="col-md-12" style="margin-bottom:5%;"> 
-		            <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3500" id="myCarousel` + t + `">
-		             <div class="carousel-inner">`,
+                    <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3500" id="myCarousel` + t + `">
+                     <div class="carousel-inner">`,
                 n = "";
             for (j = 0; j < image.length; j++) n = 0 == j ? n + `<div class="item active"><div
-		  class="col-md-3 col-sm-6 col-xs-12"><img src=` + JSON.stringify(image[j]) + ` class="img-responsive img-rounded"
-		  style="height: 240px;"></div></div>` : n + `<div class="item"><div class="col-md-3 col-sm-6
-		  col-xs-12"><img src=` + JSON.stringify(image[j]) + `
-		  class="img-responsive img-rounded" style="height: 240px;"></div></div>`;
+          class="col-md-3 col-sm-6 col-xs-12"><img src=` + JSON.stringify(image[j]) + ` class="img-responsive img-rounded"
+          style="height: 240px;"></div></div>` : n + `<div class="item"><div class="col-md-3 col-sm-6
+          col-xs-12"><img src=` + JSON.stringify(image[j]) + `
+          class="img-responsive img-rounded" style="height: 240px;"></div></div>`;
             a = a + n + `</div> <a class="left carousel-control"
-		  href="#myCarousel` + t + `" data-slide="prev"><i class="glyphicon
-		  glyphicon-chevron-left"></i></a> <a class="right carousel-control"
-		  href="#myCarousel` + t + `" data-slide="next"><i class="glyphicon
-		  glyphicon-chevron-right" style="margin-right:1%"></i></a> </div></div>`, $(".imageGallery").append(a)
+          href="#myCarousel` + t + `" data-slide="prev"><i class="glyphicon
+          glyphicon-chevron-left"></i></a> <a class="right carousel-control"
+          href="#myCarousel` + t + `" data-slide="next"><i class="glyphicon
+          glyphicon-chevron-right" style="margin-right:1%"></i></a> </div></div>`, $(".imageGallery").append(a)
         }
             setTimeout(function() {
             $(".loadingProgressBar").hide()
@@ -15482,25 +15484,25 @@ function setGalleryImages(e) {
 }
 
 function setReviewsImages(e) {
-	fetch(e.reviews).then(e => e.json()).then(e => {
-		console.log('main json='+e.reviews);
+    fetch(e.reviews).then(e => e.json()).then(e => {
+        console.log('main json='+e.reviews);
         for (var t = 0; t < e.images.length; t++) {
-        	console.log('inside json='+e.images[t]);
+            console.log('inside json='+e.images[t]);
             key = Object.keys(e.images[t]), image = e.images[t][key];
             var a = `<div class="col-md-12 text-center" style="margin-bottom: 3%;margin-top: 3%"><h2>${key}</h2></div> <div class="col-md-12" style="margin-bottom:5%;"> 
-		            <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3500" id="myCarousel` + t + `">
-		             <div class="carousel-inner">`,
+                    <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3500" id="myCarousel` + t + `">
+                     <div class="carousel-inner">`,
                 n = "";
             for (j = 0; j < image.length; j++) n = 0 == j ? n + `<div class="item active"><div
-		  class="col-md-3 col-sm-6 col-xs-12"><img src=` + JSON.stringify(image[j]) + ` class="img-responsive img-rounded"
-		  style="height: 240px;"></div></div>` : n + `<div class="item"><div class="col-md-3 col-sm-6
-		  col-xs-12"><img src=` + JSON.stringify(image[j]) + `
-		  class="img-responsive img-rounded" style="height: 240px;"></div></div>`;
+          class="col-md-3 col-sm-6 col-xs-12"><img src=` + JSON.stringify(image[j]) + ` class="img-responsive img-rounded"
+          style="height: 240px;"></div></div>` : n + `<div class="item"><div class="col-md-3 col-sm-6
+          col-xs-12"><img src=` + JSON.stringify(image[j]) + `
+          class="img-responsive img-rounded" style="height: 240px;"></div></div>`;
             a = a + n + `</div> <a class="left carousel-control"
-		  href="#myCarousel` + t + `" data-slide="prev"><i class="glyphicon
-		  glyphicon-chevron-left"></i></a> <a class="right carousel-control"
-		  href="#myCarousel` + t + `" data-slide="next"><i class="glyphicon
-		  glyphicon-chevron-right" style="margin-right:1%"></i></a> </div></div>`, $(".reviewsimage").append(a)
+          href="#myCarousel` + t + `" data-slide="prev"><i class="glyphicon
+          glyphicon-chevron-left"></i></a> <a class="right carousel-control"
+          href="#myCarousel` + t + `" data-slide="next"><i class="glyphicon
+          glyphicon-chevron-right" style="margin-right:1%"></i></a> </div></div>`, $(".reviewsimage").append(a)
         }
               setTimeout(function() {
             $(".loadingProgressBar").hide()
@@ -15509,25 +15511,25 @@ function setReviewsImages(e) {
 }
 
 function setPlacedImages(e) {
-	fetch(e.placed).then(e => e.json()).then(e => {
-		console.log('main json='+e.reviews);
+    fetch(e.placed).then(e => e.json()).then(e => {
+        console.log('main json='+e.reviews);
         for (var t = 0; t < e.images.length; t++) {
-        	console.log('inside json='+e.images[t]);
+            console.log('inside json='+e.images[t]);
             key = Object.keys(e.images[t]), image = e.images[t][key];
             var a = `<div class="col-md-12 text-center" style="margin-bottom: 3%;margin-top: 3%"><h2>${key}</h2></div> <div class="col-md-12" style="margin-bottom:5%;"> 
-		            <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3500" id="myCarousel` + t + `">
-		             <div class="carousel-inner">`,
+                    <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3500" id="myCarousel` + t + `">
+                     <div class="carousel-inner">`,
                 n = "";
             for (j = 0; j < image.length; j++) n = 0 == j ? n + `<div class="item active"><div
-		  class="col-md-3 col-sm-6 col-xs-12"><img src=` + JSON.stringify(image[j]) + ` class="img-responsive img-rounded"
-		  style="height: 240px;"></div></div>` : n + `<div class="item"><div class="col-md-3 col-sm-6
-		  col-xs-12"><img src=` + JSON.stringify(image[j]) + `
-		  class="img-responsive img-rounded" style="height: 240px;"></div></div>`;
+          class="col-md-3 col-sm-6 col-xs-12"><img src=` + JSON.stringify(image[j]) + ` class="img-responsive img-rounded"
+          style="height: 240px;"></div></div>` : n + `<div class="item"><div class="col-md-3 col-sm-6
+          col-xs-12"><img src=` + JSON.stringify(image[j]) + `
+          class="img-responsive img-rounded" style="height: 240px;"></div></div>`;
             a = a + n + `</div> <a class="left carousel-control"
-		  href="#myCarousel` + t + `" data-slide="prev"><i class="glyphicon
-		  glyphicon-chevron-left"></i></a> <a class="right carousel-control"
-		  href="#myCarousel` + t + `" data-slide="next"><i class="glyphicon
-		  glyphicon-chevron-right" style="margin-right:1%"></i></a> </div></div>`, $(".placedimages").append(a)
+          href="#myCarousel` + t + `" data-slide="prev"><i class="glyphicon
+          glyphicon-chevron-left"></i></a> <a class="right carousel-control"
+          href="#myCarousel` + t + `" data-slide="next"><i class="glyphicon
+          glyphicon-chevron-right" style="margin-right:1%"></i></a> </div></div>`, $(".placedimages").append(a)
         }
         sildeImg(), setTimeout(function() {
             $(".loadingProgressBar").hide()
@@ -15536,16 +15538,30 @@ function setPlacedImages(e) {
 }
 
 function setGalleryvideos(e) {
-     	fetch(e.video).then(e => e.json()).then(e => {
+        fetch(e.video).then(e => e.json()).then(e => {
         e.Videos.forEach(e => {    
-        		var iframe = document.createElement('iframe');
-        		iframe.AllowFullScreen = true;
-	             iframe.src = e.videoSrc; 
-	             $("#videos").append(iframe);
+                var iframe = document.createElement('iframe');
+                iframe.AllowFullScreen = true;
+                 iframe.src = e.videoSrc; 
+                 $("#videos").append(iframe);
         })
     })       
 };
 
+var toMailIds = [];
+
+async function setEmailIds() {
+    var e = await getMasterProd();
+    fetch(e.mailIds).then(e => e.json()).then(e => {
+        e.MailIds.forEach(e => { 
+            toMailIds.push(e.mailAddress);   
+        })
+        return toMailIds;
+    })
+}
+
+var result = setEmailIds();
+ 
 function sildeImg() {
     $(".carousel[data-type=\"multi\"] .item").each(function() {
         var e = $(this).next();
@@ -15590,7 +15606,7 @@ Email = {
 // return {};
 // var
 // e=$("#Name").val(),t=$("#personEmail").val(),a=$("#Subject").val(),n=$("#Message").val();
-//			  
+//            
 // return{name:e,fromEmail:t,subject:a,message:n}};
 function done() {
     $("#Name").val(""),
@@ -15621,14 +15637,15 @@ $("#sendFormData").click((event) => {
                 // console.log(data.result);
                 if (data.result == 'deliverable') {
                     if ($(".loadingProgressBar").show(),
-                        "" != e && "" != t && "" != a && "" != n) {
-                    	var v=["xworkzcontact@gmail.com","vinay@x-workz.in"];
+                        "" != e && "" != t && "" != a && "" != n) {                     
+                        var v= ["xworkzcontact@gmail.com"];
+                        v.push.apply(v, toMailIds);
                         new SendContactEmail().send(done, t, v, `${`Message from ${e}  `} ${a}`, `Hi X-workz,
 
-									This is ${t}, ${n}.
+                                    This is ${t}, ${n}.
 
-									Regards,
-									${e}`)
+                                    Regards,
+                                    ${e}`)
                     } else $("#submitForm").click()
                     setTimeout(function() {
                         $(".loadingProgressBar").hide()
@@ -15664,21 +15681,21 @@ function setFacultyDetails(e) {
     fetch(e.faculty).then(e => e.json()).then(e => {
         e.Faculties.forEach(e => {
             $("#trainers").append(`<div class="row" style="display:flex">
-							<div class="col-md-3">
-								<div class="team-grid">
-									<img class="team-img img-responsive" src="${e.imgSrc}" alt="" height="100px">
-									<h6>${e.name}</h6>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-						<div class="col-md-7" style="background-color:#f7f4f4;" class="facultyDesc">
-						<ul><b class="facultyName"><span>About</span></b>
-					    <br/>
-					${createFacultyDescList(e.description).join("")}
-						</ul>
-						</div>
-						</div>
-						<br/>`)
+                            <div class="col-md-3">
+                                <div class="team-grid">
+                                    <img class="team-img img-responsive" src="${e.imgSrc}" alt="" height="100px">
+                                    <h6>${e.name}</h6>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        <div class="col-md-7" style="background-color:#f7f4f4;" class="facultyDesc">
+                        <ul><b class="facultyName"><span>About</span></b>
+                        <br/>
+                    ${createFacultyDescList(e.description).join("")}
+                        </ul>
+                        </div>
+                        </div>
+                        <br/>`)
         })
     })
 }
@@ -15691,29 +15708,29 @@ function setCourses(e, t) {
         for (var r = "", l = 0; l < s.length; l++) {
             var placed = s[l].placed != 0 ? 'Total placed:' + s[l].placed : '';
             r += `<div class="col-md-4 courses-info" >
-						
-				<h5  id="contactUs"
-	        		style="cursor:pointer;">${s[l].courseName}<br/>
-	        		<span class="badge badge-success">${s[l].type}</span></h5>
-					<div class="c-image" >
-						<img src="${e.facultyImage}${s[l].facultyName}.png" class="img-responsive">
-						<h6>${s[l].facultyName}</h6> <h7 class="pull-right">` + placed + `</h7>
-						<div class="clearfix"></div>
-					</div>
-					<p class="batch">
-							Batch Starts from ${s[l].startDate} at ${s[l].time}
-							<span>  </span>
-					</p>
-					
-					<div class="row">
-						<div class="col-md-6 col-sm-2 download-align downloadTextCss" style="margin: 20px 0px 0px0 20px;" id="downloadCourse" onclick="storeCourseData('${s[l].courseName}','${s[l].startDate}');">
-							<span id="getCourse"  style="color:#ea4c89;cursor:pointer;"  >Download Course <span class="fa fa-download"></span></span>
-						</div>
-						<div class="col-md-5 col-sm-1 share-align" id="shareCourse" onclick="storeCourseData('${s[l].courseName}','${s[l].startDate}');" align="right">
-							<span id="shareCourseTo"  style="color:#ea4c89;cursor:pointer;"  >Share Course <span class="fa fa-share-alt"></span></span>
-						</div>
-				</div>
-				</div>`
+                        
+                <h5  id="contactUs"
+                    style="cursor:pointer;">${s[l].courseName}<br/>
+                    <span class="badge badge-success">${s[l].type}</span></h5>
+                    <div class="c-image" >
+                        <img src="${e.facultyImage}${s[l].facultyName}.png" class="img-responsive">
+                        <h6>${s[l].facultyName}</h6> <h7 class="pull-right">` + placed + `</h7>
+                        <div class="clearfix"></div>
+                    </div>
+                    <p class="batch">
+                            Batch Starts from ${s[l].startDate} at ${s[l].time}
+                            <span>  </span>
+                    </p>
+                    
+                    <div class="row">
+                        <div class="col-md-6 col-sm-2 download-align downloadTextCss" style="margin: 20px 0px 0px0 20px;" id="downloadCourse" onclick="storeCourseData('${s[l].courseName}','${s[l].startDate}');">
+                            <span id="getCourse"  style="color:#ea4c89;cursor:pointer;"  >Download Course <span class="fa fa-download"></span></span>
+                        </div>
+                        <div class="col-md-5 col-sm-1 share-align" id="shareCourse" onclick="storeCourseData('${s[l].courseName}','${s[l].startDate}');" align="right">
+                            <span id="shareCourseTo"  style="color:#ea4c89;cursor:pointer;"  >Share Course <span class="fa fa-share-alt"></span></span>
+                        </div>
+                </div>
+                </div>`
         };
         a += r
     }
@@ -15774,10 +15791,11 @@ $("#getCourse").click(() => {
                         console.log(data);
                         // console.log(data.result);
                         if (data.result == 'deliverable') {
-                            setTimeout(() => {
-                            	    var v= ["xworkzcontact@gmail.com","vinay@x-workz.in"];
+                            setTimeout(() => {                          
+                                    var v= ["xworkzcontact@gmail.com"];
+                                    v.push.apply(v, toMailIds);
                                     var i = `Hi
-											Please Send the Course contents for ${a} (${n}) to '${e}' contact number is ${t} . Thanks`;
+                                            Please Send the Course contents for ${a} (${n}) to '${e}' contact number is ${t} . Thanks`;
                                     new SendContactEmail().send(emailSent("We Will be Shortly Sending you course Content to Your Email"), e, v, `Course Contents for ${a} (${n}) `, i)
                                 }, 500),
                                 $("#courseModal").modal("hide"),
@@ -15833,9 +15851,10 @@ $("#getCourse").click(() => {
                     let validPersonEmail = ValidateEmail(e);
                     let validSharedPersonEmail = ValidateEmail(t);
                     if (validPersonEmail == true && validSharedPersonEmail == true) {
-                        alert('given email is valid.............')
-                        // checkNdSendSharedEmail(event,e,t);
-                         var v= ["xworkzcontact@gmail.com","vinay@x-workz.in"];
+                        alert('given emails are valid.............')
+                        
+                        var v= ["xworkzcontact@gmail.com"];
+                        v.push.apply(v, toMailIds);
                         new SendContactEmail().send(emailSent("We will be shortly sending course content to your friend's Email \nThank you for sharing....."), e, v,
                             `Course Contents, reffered for ${a} (${n})`,
 
@@ -16012,7 +16031,9 @@ function checkFileDataFromTheCheckerIdNSharedMail(event, e, t, id) {
             if (data.status.deliverable == 2) {
                 let a = localStorage.getItem("getCourseInfo"),
                     n = localStorage.getItem("getCourseDate");
-                var v= ["xworkzcontact@gmail.com","vinay@x-workz.in"];
+                
+                var v= ["xworkzcontact@gmail.com"];
+                v.push.apply(v, toMailIds);
                 new SendContactEmail().send(emailSent("We will be shortly sending course content to your friend's Email \nThank you for sharing....."), e, v,
                     `Course Contents, reffered for ${a} (${n})`,
 
@@ -16058,7 +16079,7 @@ function setNotificationData(popUpURL) {
         for (i = 0; i < jsonData.length; i++) {
             notification += '<div class="row" style="margin-top: 25px"><div class="col-sm-1"></div><div class="col-sm-10"><h5>' +
                 jsonData[i] +
-                '</h5></div>	<div class="col-sm-1"></div></div>';
+                '</h5></div>    <div class="col-sm-1"></div></div>';
         }
         $(".notData").html(notification);
     });
@@ -16073,7 +16094,6 @@ function OnloadPopUp() {
     }
 
 }
-
 
 /*
  * $(window).onbeforeunload(function(){
