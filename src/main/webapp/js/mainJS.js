@@ -15463,7 +15463,7 @@ function setGalleryImages(e) {
         for (var t = 0; t < e.images.length; t++) {
             key = Object.keys(e.images[t]), image = e.images[t][key];
             var a = `<div class="col-md-12 text-center" style="margin-bottom: 3%;margin-top: 3%"><h2>${key}</h2></div> <div class="col-md-12" style="margin-bottom:5%;"> 
-		            <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3500" id="myCarousel` + t + `">
+		            <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3000" id="myCarousel` + t + `">
 		             <div class="carousel-inner">`,
                 n = "";
             for (j = 0; j < image.length; j++) n = 0 == j ? n + `<div class="item active"><div
@@ -15490,7 +15490,7 @@ function setReviewsImages(e) {
         	console.log('inside json='+e.images[t]);
             key = Object.keys(e.images[t]), image = e.images[t][key];
             var a = `<div class="col-md-12 text-center" style="margin-bottom: 3%;margin-top: 3%"><h2>${key}</h2></div> <div class="col-md-12" style="margin-bottom:5%;"> 
-		            <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3500" id="myCarousel` + t + `">
+		            <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3000" id="myCarousel` + t + `">
 		             <div class="carousel-inner">`,
                 n = "";
             for (j = 0; j < image.length; j++) n = 0 == j ? n + `<div class="item active"><div
@@ -15517,7 +15517,7 @@ function setPlacedImages(e) {
         	console.log('inside json='+e.images[t]);
             key = Object.keys(e.images[t]), image = e.images[t][key];
             var a = `<div class="col-md-12 text-center" style="margin-bottom: 3%;margin-top: 3%"><h2>${key}</h2></div> <div class="col-md-12" style="margin-bottom:5%;"> 
-		            <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3500" id="myCarousel` + t + `">
+		            <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3000" id="myCarousel` + t + `">
 		             <div class="carousel-inner">`,
                 n = "";
             for (j = 0; j < image.length; j++) n = 0 == j ? n + `<div class="item active"><div
