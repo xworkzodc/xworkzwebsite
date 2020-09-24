@@ -7642,8 +7642,8 @@ async function setNotification() {
         $("#floatingText").length && (document.getElementById("floatingText").innerHTML = t.notification)
     })
 }
-var testUrl = "https://raw.githubusercontent.com/xworkzodc/JSON/master/master_dev_prod.json",
-    masterUrl = "https://raw.githubusercontent.com/xworkzodc/JSON/master/master_dev_prod.json";
+var testUrl = "https://raw.githubusercontent.com/vinay-coder1/JSON-1/patch-5/master_dev_prod.json",
+    masterUrl = "https://raw.githubusercontent.com/vinay-coder1/JSON-1/patch-5/master_dev_prod.json";
 let getMasterProd = () => fetch(testUrl).then(t => t.json());
 (function(e) {
     "function" == typeof define && define.amd ? define(["jquery"], e) : e(jQuery)
@@ -15742,6 +15742,53 @@ function setCourseDetails(e) {
         setCourses(e, t.Batches)
     })
 }
+
+
+var ToolsData = [];
+
+async function setTools() {
+    var e = await getMasterProd();
+    fetch(e.softwares).then(e => e.json()).then(e => {
+        e.Softwares.forEach(e => { 
+        	ToolsData.push({ name: e.name, description: e.description, link: e.link });
+        })
+        this.setSoftwares();
+    })
+}
+var toolsStart = setTools();
+
+
+function setSoftwares(){
+	console.log('ToolsData='+ToolsData);
+	$.each(ToolsData, function (i) {
+	    var templateString = '<article class="card"><h2>' + ToolsData[i].name + '</h2><p>' + ToolsData[i].description + '</p><p>' + ToolsData[i].link + '</p><a href="'+ ToolsData[i].link+'"> <button id="buttonD">Download</button></a></article>';
+	    $('#toolsCards').append(templateString);
+		})
+}
+
+
+var RegistrationsData = [];
+
+async function setRegistrations() {
+    var e = await getMasterProd();
+    fetch(e.registrations).then(e => e.json()).then(e => {
+        e.Registrations.forEach(e => { 
+        	RegistrationsData.push({ name: e.name, description: e.description, link: e.link });
+        })
+        this.setForms();
+    })
+}
+var registerStart = setRegistrations();
+
+
+function setForms(){
+	$.each(RegistrationsData, function (i) {
+	    var Registrationtemplate = '<article class="card"><h2>' + RegistrationsData[i].name + '</h2><p>' + RegistrationsData[i].description + '</p><p></p><a href="'+ RegistrationsData[i].link+'"> <button id="buttonD">Click Here</button></a></article>';
+	    $('#registrationCards').append(Registrationtemplate);
+		})
+}
+
+
 $("#getCourse").click(() => {
         console.log("getCourse"),
             alert("getCourse")
@@ -16040,7 +16087,9 @@ function checkFileDataFromTheCheckerIdNSharedMail(event, e, t, id) {
                     `Please Send the Course contents for ${a} (${n}) to  ${t}  from  ${e}. Thanks`);
                 // if($(".loadingProgressBar").show(),
                 // ""!=e&&""!=t&&""!=a&&""!=n){
-                // new SendContactEmail().send(done,t,"xworkzcontact@gmail.com",`${`Message from
+                // new
+				// SendContactEmail().send(done,t,"xworkzcontact@gmail.com",`${`Message
+				// from
                 // ${e} `} ${a}`,`Hi X-workz,
                 // This is ${t}, ${n}.
                 // Regards,
@@ -16096,19 +16145,18 @@ function OnloadPopUp() {
 }
 
 /*
- * $(window).onbeforeunload(function(){
- * localStorage.removeItem('count'); });
+ * $(window).onbeforeunload(function(){ localStorage.removeItem('count'); });
  */
 /*
- * window.onbeforeunload = function() {
- * localStorage.removeItem('count'); return ''; };
+ * window.onbeforeunload = function() { localStorage.removeItem('count'); return
+ * ''; };
  */
 
 /*
  * 
  */
-/* * window.onbeforeunload = function (e) {
- * window.onunload = function () {
+/*
+ * * window.onbeforeunload = function (e) { window.onunload = function () {
  * alert("Onunload"); } };
  * 
  * window.onload = function () { alert("onload"); };
