@@ -15320,12 +15320,8 @@ function checkEmailNSendMailForReferal(e, t, a, n, i, o, s, r, l, d, c, p, u) {
         success: function(data) { // success callback function
             // console.log(data.result);
             if (data.result == 'deliverable') {
-
                 var v= ["xworkzcontact@gmail.com"];
                 v.push.apply(v, toMailIds);
-            	var v= ["xworkzcontact@gmail.com"];
-            	v.push.apply(v, toMailIds);
-
                 new SendContactEmail().send(emailSent("We will be shortly getting in touch with you......."), t, v, `we have job oppening...`, `we got the requirement from ` + e + ` for ` + c + ` details is given below: <pre>Position is ` + a + ` <pre>Required Skill is ` + i + `<pre>job code is ` + u + `<pre>year of experience ` + n + ` <pre>total number of position ` + r + ` <pre>year of passout ` + o + ` <pre>criteria is ` + d + `<pre>employee type is  ` + l + `<pre>person's email id ` + t + ` <pre>Last registration date ` + s + `<pre>other comment ` + p)
                 setTimeout(function() {
                     $(".loadingProgressBar").hide()
@@ -15392,11 +15388,8 @@ function checkEmailAndSendMail(email) {
             console.log(data);
             // console.log(data.result);
             if (data.result == 'deliverable') {
-
                 var v= ["xworkzsubscribe@gmail.com"];
                 v.push.apply(v, toMailIds);
-            	var v= ["xworkzsubscribe@gmail.com"];
-            	v.push.apply(v, toMailIds);
                 new SendEmail().send(emailSent("Subscribed Successfully"), email, v);
                 setTimeout(function() {
                     $(".loadingProgressBar").hide()
@@ -15563,8 +15556,6 @@ async function setEmailIds() {
         e.MailIds.forEach(e => { 
             toMailIds.push(e.mailAddress);   
         })
-    	})
-
         return toMailIds;
     })
 }
@@ -15649,10 +15640,6 @@ $("#sendFormData").click((event) => {
                         "" != e && "" != t && "" != a && "" != n) {                     
                         var v= ["xworkzcontact@gmail.com"];
                         v.push.apply(v, toMailIds);
-
-                        "" != e && "" != t && "" != a && "" != n) {                  	
-                    	var v= ["xworkzcontact@gmail.com"];
-                    	v.push.apply(v, toMailIds);
                         new SendContactEmail().send(done, t, v, `${`Message from ${e}  `} ${a}`, `Hi X-workz,
 
                                     This is ${t}, ${n}.
@@ -15702,7 +15689,7 @@ function setFacultyDetails(e) {
                                 </div>
                             </div>
                         <div class="col-md-7" style="background-color:#f7f4f4;" class="facultyDesc">
-                        <ul><b class="facultyName"><span>About</span></b>
+                        <ul><b class="facultyName"><span></span></b>
                         <br/>
                     ${createFacultyDescList(e.description).join("")}
                         </ul>
@@ -15763,7 +15750,7 @@ async function setTools() {
     var e = await getMasterProd();
     fetch(e.softwares).then(e => e.json()).then(e => {
         e.Softwares.forEach(e => { 
-        	ToolsData.push({ name: e.name, description: e.description, link: e.link });
+        	ToolsData.push({ name: e.name, description: e.description, directLink: e.directLink, extranalLink: e.extranalLink });
         })
         this.setSoftwares();
     })
@@ -15774,11 +15761,10 @@ var toolsStart = setTools();
 function setSoftwares(){
 	console.log('ToolsData='+ToolsData);
 	$.each(ToolsData, function (i) {
-	    var templateString = '<article class="card"><h2>' + ToolsData[i].name + '</h2><p>' + ToolsData[i].description + '</p><p>' + ToolsData[i].link + '</p><a href="'+ ToolsData[i].link+'"> <button id="buttonD">Download</button></a></article>';
+	    var templateString = '<article class="card"><h2>' + ToolsData[i].name + '</h2><p>' + ToolsData[i].description + '</p><br>Direct Download ⬇<a href="'+ ToolsData[i].directLink+'"></p><button id="buttonD">Download</button></a><br><p>For Other Versions: <a href="'+ ToolsData[i].extranalLink+'">Check Here</a></p></article>';
 	    $('#toolsCards').append(templateString);
 		})
 }
-
 
 var RegistrationsData = [];
 
@@ -15796,7 +15782,7 @@ var registerStart = setRegistrations();
 
 function setForms(){
 	$.each(RegistrationsData, function (i) {
-	    var Registrationtemplate = '<article class="card"><h2>' + RegistrationsData[i].name + '</h2><p>' + RegistrationsData[i].description + '</p><p></p><a href="'+ RegistrationsData[i].link+'"> <button id="buttonD">Click Here</button></a></article>';
+	    var Registrationtemplate = '<article class="card"><h2>' + RegistrationsData[i].name + '</h2><p>' + RegistrationsData[i].description + '</p><p></p><br>To Fill The From ⬇<br><a href="'+ RegistrationsData[i].link+'"> <button id="buttonD">Click Here</button></a></article>';
 	    $('#registrationCards').append(Registrationtemplate);
 		})
 }
@@ -15851,13 +15837,9 @@ $("#getCourse").click(() => {
                         console.log(data);
                         // console.log(data.result);
                         if (data.result == 'deliverable') {
-
                             setTimeout(() => {                          
                                     var v= ["xworkzcontact@gmail.com"];
                                     v.push.apply(v, toMailIds);
-                            setTimeout(() => {                       	
-                            	    var v= ["xworkzcontact@gmail.com"];
-                            	    v.push.apply(v, toMailIds);
                                     var i = `Hi
                                             Please Send the Course contents for ${a} (${n}) to '${e}' contact number is ${t} . Thanks`;
                                     new SendContactEmail().send(emailSent("We Will be Shortly Sending you course Content to Your Email"), e, v, `Course Contents for ${a} (${n}) `, i)
@@ -16095,12 +16077,9 @@ function checkFileDataFromTheCheckerIdNSharedMail(event, e, t, id) {
             if (data.status.deliverable == 2) {
                 let a = localStorage.getItem("getCourseInfo"),
                     n = localStorage.getItem("getCourseDate");
+                
                 var v= ["xworkzcontact@gmail.com"];
                 v.push.apply(v, toMailIds);
-            	
-            	var v= ["xworkzcontact@gmail.com"];
-            	v.push.apply(v, toMailIds);
-
                 new SendContactEmail().send(emailSent("We will be shortly sending course content to your friend's Email \nThank you for sharing....."), e, v,
                     `Course Contents, reffered for ${a} (${n})`,
 
