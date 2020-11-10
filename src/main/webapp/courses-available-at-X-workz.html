@@ -10,6 +10,9 @@
 	content="angularm testing, manual , selenium, sql, web, java frameworks, java projects, Rest web services, interviews, placements , internships, projects, college placements" />
 
 <link href="css/final.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/mainJS.js" defer></script>
 </head>
 
 <body>
@@ -75,6 +78,9 @@
 									<li><a href="X-workz-gallery-placements-photos.html">Gallery</a></li>
 									<li><a href="Placed-trainees-from-X-workz.html">Placements</a></li>
 									<li><a href="referral-X-workz-companies-emailId.html">Referral</a></li>
+									<li><a href="Softwares-and-tools-links-for-X-workz.html">Softwares</a></li>
+									<li><a href="Registration-forms-links-x-workz.html">Registrations</a></li>
+									<li><a href="Interview-questions-x-workz.html">Interview Questions</a></li>
 								</ul>
 							</div>
 						</div>
@@ -178,9 +184,6 @@
 		</div>
 	</div>
 
-
-
-
 	<!-- Share Modal -->
 	<div class="modal fade " role="dialog" id="shareModal">
 		<div class="modal-dialog modal-sm">
@@ -251,34 +254,32 @@
 
 		</div>
 	</div>
-
 	<a href="#home" class="scroll" id="toTop" style="display: block;">
 		<span id="toTopHover" style="opacity: 1;"> </span>
 	</a>
-
-
-
 	
-	 <script type="text/javascript" src="js/mainJS.js"></script>
 	<script>
-		$('#myModal').modal({
+	$('#myModal').modal({
 			backdrop : false,
 			keyboard : false,
 			show : false
 		});
-		$('#courseModal').modal({
+	$('#courseModal').modal({
 			backdrop : false,
 			keyboard : false,
 			show : false
 		});
+	$('#shareModal').modal({
+		backdrop : false,
+		keyboard : false,
+		show : false
+	    });
 		function storeCourseData(course, courseDate) {
 			localStorage.setItem("getCourseInfo", course);
 			localStorage.setItem("getCourseDate", courseDate);
-			$('#courseModal').modal('show');
+			$('#courseModal').modal('show');		
 		}
 	</script>
-			
-
 
 </body>
 
