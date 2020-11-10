@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>x-workzSEOWebsite</groupId>
-	<artifactId>x-workzWebApp</artifactId>
+	<artifactId>x-workzSeoApp</artifactId>
 	<version>1.0.0.version</version>
 	<packaging>war</packaging>
 	<build>
@@ -26,7 +26,7 @@
 				<artifactId>appengine-maven-plugin</artifactId>
 				<version>2.2.0</version>
 				<configuration>
-					<deploy.projectId>x-workz-webapp</deploy.projectId>
+					<deploy.projectId>x-workz-seo-based-webapp</deploy.projectId>
 					<deploy.version>v01</deploy.version>
 					<stage.enableJarSplitting>true</stage.enableJarSplitting>
 					<deploy.stopPreviousVersion>true</deploy.stopPreviousVersion>
