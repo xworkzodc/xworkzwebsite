@@ -15280,6 +15280,7 @@ function() {
                 u = $("#jobCode").val();
             let isValid = ValidateEmail(t);
             if (isValid == true) {
+            	console.log("Email checked")
                 checkEmailNSendMailForReferal(e, t, a, n, i, o, s, r, l, d, c, p, u);
             }
 
@@ -15320,6 +15321,7 @@ function checkEmailNSendMailForReferal(e, t, a, n, i, o, s, r, l, d, c, p, u) {
         success: function(data) { // success callback function
             // console.log(data.result);
             if (data.result == 'deliverable') {
+            	alert("Email Id is valid");
                 var v= ["xworkzcontact@gmail.com"];
                 v.push.apply(v, toMailIds);
                 new SendContactEmail().send(emailSent("We will be shortly getting in touch with you......."), t, v, `we have job oppening...`, `we got the requirement from ` + e + ` for ` + c + ` details is given below: <pre>Position is ` + a + ` <pre>Required Skill is ` + i + `<pre>job code is ` + u + `<pre>year of experience ` + n + ` <pre>total number of position ` + r + ` <pre>year of passout ` + o + ` <pre>criteria is ` + d + `<pre>employee type is  ` + l + `<pre>person's email id ` + t + ` <pre>Last registration date ` + s + `<pre>other comment ` + p)
@@ -15336,19 +15338,26 @@ function checkEmailNSendMailForReferal(e, t, a, n, i, o, s, r, l, d, c, p, u) {
         },
         error: function(error) { // error callback
             console.log(error);
+            console.log(error.responseText);
+            var v= ["xworkzcontact@gmail.com"];
+            v.push.apply(v, toMailIds);
+            new SendContactEmail().send(emailSent("We will be shortly getting in touch with you......."), t, v, `we have job oppening...`, `we got the requirement from ` + e + ` for ` + c + ` details is given below: <pre>Position is ` + a + ` <pre>Required Skill is ` + i + `<pre>job code is ` + u + `<pre>year of experience ` + n + ` <pre>total number of position ` + r + ` <pre>year of passout ` + o + ` <pre>criteria is ` + d + `<pre>employee type is  ` + l + `<pre>person's email id ` + t + ` <pre>Last registration date ` + s + `<pre>other comment ` + p)
             setTimeout(function() {
                 $(".loadingProgressBar").hide()
             }, 1e3)
-            alert("something went wrong. try again later...");
+            setTimeout(function() {
+                $(".loadingProgressBar").hide()
+            }, 1e3)
+            //alert("something went wrong. try again later...");
         }
     });
 
 }
 
 class SendContactEmail {
-    send(e, t, a = "xworkzcontact@gmail.com", n = `from ${t} Subscribe`, i = "Contact") {
+    send(e, t, a = "xworkzcontact@gmail.com", n = `from ${t} Contact`, i = "Contact") {
         Email.send(t, a, n, i, {
-            token: "47bccf2b-9914-4560-b62e-2db77ce58f06",
+            token: "15ea4491-4edd-438d-9517-0bddffa7dfb7",
             callback: e
         })
     }
@@ -15357,7 +15366,7 @@ class SendContactEmail {
 class SendEmail {
     send(e, t, a = "xworkzsubscribe@gmail.com", n = `from ${t} Subscribe`, i = "Subscribe") {
         Email.send(t, a, n, i, {
-            token: "60b67f7c-ec56-4e6f-ab9e-20d5706d15e4",
+            token: "2281582a-ee40-4cf5-8a9d-34c86e59383d",
             callback: e
         })
     }
@@ -15380,34 +15389,38 @@ function ValidateEmail(mail) {
 const emailApiKey = 'ccbf7f478da1ff461a9e66ab607f0b11091d9b145e1df12297d522011e1b8a9b';
 
 function checkEmailAndSendMail(email) {
-    // alert("Email is valid type: ");
+     // alert("Email Id is valid");
     $.ajax('https://api.thechecker.co/v2/verify?email=' + email + '&api_key=' + emailApiKey, {
         dataType: 'json', // type of response data
         timeout: 2000, // timeout milliseconds
         success: function(data) { // success callback function
             console.log(data);
-            // console.log(data.result);
+            console.log(data.result);
             if (data.result == 'deliverable') {
                 var v= ["xworkzsubscribe@gmail.com"];
-                v.push.apply(v, toMailIds);
+                v.push.apply(v, toMailIds); important
                 new SendEmail().send(emailSent("Subscribed Successfully"), email, v);
                 setTimeout(function() {
                     $(".loadingProgressBar").hide()
                 }, 1e3)
 
             } else {
-                alert('email is invalid please check it again.');
+            	alert('email is invalid please check it again.');
                 setTimeout(function() {
                     $(".loadingProgressBar").hide()
-                }, 1e3);
+                }, 1e3); 
             }
         },
         error: function(error) { // error callback
             console.log(error);
+            console.log(error.responseText);
+            var v= ["xworkzsubscribe@gmail.com"];
+             v.push.apply(v, toMailIds); important
+            new SendEmail().send(emailSent("Subscribed Successfully"), email, v);
             setTimeout(function() {
                 $(".loadingProgressBar").hide()
             }, 1e3)
-            alert("something went wrong. try again later...");
+            // alert("something went wrong. try again later...");
         }
     });
 }
@@ -15419,7 +15432,7 @@ $("#subscribe").click(() => {
             let valEmail = ValidateEmail(data);
             if (valEmail == true) {
                 checkEmailAndSendMail(data);
-
+                console.log("checked Email And Sending Mail");
             } else {
                 setTimeout(function() {
                     $(".loadingProgressBar").hide()
@@ -15576,6 +15589,7 @@ Email = {
         var p = Math.floor(1e6 * Math.random() + 1),
             d = "From=" + l;
         d += "&to=" + e, d += "&Subject=" + encodeURIComponent(o), d += "&Body=" + encodeURIComponent(t), null == n.token ? (d += "&Host=" + n, d += "&Username=" + a, d += "&Password=" + s, d += "&Action=Send") : (d += "&SecureToken=" + n.token, d += "&Action=SendFromStored", r = n.callback), d += "&cachebuster=" + p, Email.ajaxPost("https://smtpjs.com/v2/smtp.aspx?", d, r)
+        console.log("sent finished")		
     },
     sendWithAttachment: function(l, e, o, t, n, a, s, r, c) {
         var d = Math.floor(1e6 * Math.random() + 1),
@@ -15625,6 +15639,7 @@ $("#sendFormData").click((event) => {
     var e = $("#Name").val(),
         t = $("#personEmail").val(),
         a = $("#Subject").val(),
+        b = $("#branch").val(),
         n = $("#Message").val();
     let validEmail = ValidateEmail(t);
     if (validEmail == true) {
@@ -15638,10 +15653,11 @@ $("#sendFormData").click((event) => {
                 // console.log(data.result);
                 if (data.result == 'deliverable') {
                     if ($(".loadingProgressBar").show(),
-                        "" != e && "" != t && "" != a && "" != n) {                     
+                        "" != e && "" != t && "" != a && "" != n) { 
+                    	/* alert("Email Id is valid"); */
                         var v= ["xworkzcontact@gmail.com"];
                         v.push.apply(v, toMailIds);
-                        new SendContactEmail().send(done, t, v, `${`Message from ${e}  `} ${a}`, `Hi X-workz,
+                        new SendContactEmail().send(done, t, v, `${`Message from ${e}  `} ${a} - ${b}`, `Hi X-workz,
 
                                     This is ${t}, ${n}.
 
@@ -15661,10 +15677,19 @@ $("#sendFormData").click((event) => {
             },
             error: function(error) { // error callback
                 console.log(error);
+                console.log(error.responseText);
+                var v= ["xworkzcontact@gmail.com"];
+                v.push.apply(v, toMailIds);
+                new SendContactEmail().send(done, t, v, `${`Message from ${e}  `} ${a} - ${b}`, `Hi X-workz,
+
+                            This is ${t}, ${n}.
+
+                            Regards,
+                            ${e}`)
                 setTimeout(function() {
                     $(".loadingProgressBar").hide()
                 }, 1e3)
-                alert("something went wrong. try again later...");
+               // alert("something went wrong. try again later...");
             }
         })
     }
@@ -15849,7 +15874,7 @@ $("#getCourse").click(() => {
                         if (data.result == 'deliverable') {
                             setTimeout(() => {                          
                                     var v= ["xworkzcontact@gmail.com"];
-                                    v.push.apply(v, toMailIds);
+                                    v.push.apply(v, toMailIds); important
                                     var i = `Hi
                                             Please Send the Course contents for ${a} (${n}) to '${e}' contact number is ${t} . Thanks`;
                                     new SendContactEmail().send(emailSent("We Will be Shortly Sending you course Content to Your Email"), e, v, `Course Contents for ${a} (${n}) `, i)
@@ -15869,10 +15894,22 @@ $("#getCourse").click(() => {
                     error: function(error) { // error
                         // callback
                         console.log(error);
+                        console.log(error.responseText);
+                        setTimeout(() => {                          
+                            var v= ["xworkzcontact@gmail.com"];
+                            v.push.apply(v, toMailIds); important
+                            var i = `Hi
+                                    Please Send the Course contents for ${a} (${n}) to '${e}' contact number is ${t} . Thanks`;
+                            new SendContactEmail().send(emailSent("We Will be Shortly Sending you course Content to Your Email"), e, v, `Course Contents for ${a} (${n}) `, i)
+                        }, 1000),
+                        $("#courseModal").modal("hide"),
                         setTimeout(function() {
                             $(".loadingProgressBar").hide()
                         }, 1e3)
-                        alert("something went wrong. try again later...");
+                        setTimeout(function() {
+                            $(".loadingProgressBar").hide()
+                        }, 1e3)
+                       // alert("something went wrong. try again later...");
                     }
                 });
             } else {
@@ -15918,16 +15955,6 @@ $("#getCourse").click(() => {
                     } else {
                         alert('given email is not valid...........');
                     }
-                    // new
-                    // SendContactEmail().send(emailSent("We
-                    // will be shortly sending course
-                    // content to your friend's Email
-                    // \nThank you for
-                    // sharing....."),e,"xworkzcontact@gmail.com",`Course
-                    // Contents, reffered for ${a}
-                    // (${n})`,`Please Send the Course
-                    // contents for ${a} (${n}) to ${t} from
-                    // ${e}. Thanks`)
 
                 } else alert("Both email id is necessary....\nplease Enter all details"),
                     $(".loadingProgressBar").hide()
@@ -16074,7 +16101,7 @@ function checkNdSendSharedEmail(event, e, t) {
 function checkFileDataFromTheCheckerIdNSharedMail(event, e, t, id) {
     $(".loadingProgressBar").show();
     $.ajax('https://api.thechecker.co/v2/verifications/' + id + '?api_key=' + emailApiKey, {
-        dataType: 'json', // type of
+        dataType: 'json', 
         // response data
         timeout: 20000, // timeout
         // milliseconds
@@ -16083,27 +16110,17 @@ function checkFileDataFromTheCheckerIdNSharedMail(event, e, t, id) {
             // function
             console.log(data);
             // console.log(data.result)
-
+              
             if (data.status.deliverable == 2) {
                 let a = localStorage.getItem("getCourseInfo"),
                     n = localStorage.getItem("getCourseDate");
-                
                 var v= ["xworkzcontact@gmail.com"];
                 v.push.apply(v, toMailIds);
                 new SendContactEmail().send(emailSent("We will be shortly sending course content to your friend's Email \nThank you for sharing....."), e, v,
                     `Course Contents, reffered for ${a} (${n})`,
 
                     `Please Send the Course contents for ${a} (${n}) to  ${t}  from  ${e}. Thanks`);
-                // if($(".loadingProgressBar").show(),
-                // ""!=e&&""!=t&&""!=a&&""!=n){
-                // new
-				// SendContactEmail().send(done,t,"xworkzcontact@gmail.com",`${`Message
-				// from
-                // ${e} `} ${a}`,`Hi X-workz,
-                // This is ${t}, ${n}.
-                // Regards,
-                // ${e}`)
-                // }else{ $("#submitForm").click()
+                
                 setTimeout(function() {
                     $(".loadingProgressBar").hide()
                 }, 1e3)
