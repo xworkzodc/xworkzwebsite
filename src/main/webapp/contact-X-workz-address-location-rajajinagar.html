@@ -90,11 +90,26 @@ JSF Angular JS Angular 6  HTML CSS JavaScript Node JS Build Tools Cloud Architec
 								     <li><a href="Reviews-X-workz-google-reviews.html">Reviews</a></li>
 									<li><a href=" X-workz-java-testing-development-software-training-center.html">Home</a></li>
 									<li><a href="about-X-workz-trainers-courses.html">About</a></li>
-									<li><a href="courses-available-at-X-workz.html">Courses</a></li>
-									<li><a class="active" href="contact-X-workz-address-location.html">Contact</a></li>
+									<li>
+										<a data-toggle="dropdown" >Courses</a>
+										<div class="dropdown-menu">
+											<a class="dropdown-item" href="courses-available-at-X-workz-Rajajinagar.html">RajajiNagar</a>
+											<a class="dropdown-item" href="courses-available-at-X-workz-BTM.html">BTM Layout</a>
+										</div>
+									</li>
+									<li><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+									<a class="active" data-toggle="dropdown" >Locations</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="contact-X-workz-address-location-rajajinagar.html">RajajiNagar</a>
+										<a class="dropdown-item" href="contact-X-workz-address-location-BTM.html">BTM Layout</a>
+									</div>
+									</li>
 									<li><a href="X-workz-gallery-placements-photos.html">Gallery</a></li>
 									<li><a href="Placed-trainees-from-X-workz.html">Placements</a></li>
 									<li><a href="referral-X-workz-companies-emailId.html">Referral</a></li>
+									<li><a href="Softwares-and-tools-links-for-X-workz.html">Softwares</a></li>
+									<li><a href="Registration-forms-links-x-workz.html">Registrations</a></li>
+									<li><a href="Interview-questions-x-workz.html">Interview Questions</a></li>
 								</ul>
 							</div>
 						</div>
@@ -109,9 +124,9 @@ JSF Angular JS Angular 6  HTML CSS JavaScript Node JS Build Tools Cloud Architec
 	<div class="contact-page">
 		<div class="container">
 			<div class="contact-maps">
-				<h5 class="main-w3l-title">Find us on the map</h5>
+				<h5 class="main-w3l-title" style="margin-bottom: 0.5em;">Find us on the map</h5>
+				
 				<div id="horizontalTab">
-
 					<div class="resp-tabs-container">
 						<div class="tab1">
 							<div class="col-md-5 add-left">
@@ -131,7 +146,7 @@ JSF Angular JS Angular 6  HTML CSS JavaScript Node JS Build Tools Cloud Architec
 							<div class="col-md-7 add-right">
 							<div class=iframe-container>
 								<iframe
-									src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d485.9578852758961!2d77.55598821362972!3d12.993388084795642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d8bff705ead%3A0xf5c1e6817978b305!2sKinara+Capital+-+Rajajinagar!5e0!3m2!1sen!2sin!4v1541226419544"
+									src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.662510216746!2d77.5540680139714!3d12.993424617916697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d92e03a00dd%3A0x8b96f625cf9b4ead!2sX-Workz!5e0!3m2!1sen!2sin!4v1601532336527!5m2!1sen!2sin"
 									width="600" height="450 " frameborder="0 " style="border: 0"
 									allowfullscreen></iframe>
 									</div>
@@ -140,8 +155,8 @@ JSF Angular JS Angular 6  HTML CSS JavaScript Node JS Build Tools Cloud Architec
 						</div>
 					</div>
 				</div>
-			</div>
-			<br /> <br /> <br /> <br />
+				</div>
+				<br /> <br /> <br /> <br />
 			<h5 class="main-w3l-title">Get in touch</h5>
 			<div class="form-bg">
 				<form action="" method="post" enctype="text/plain" id="target">
@@ -152,6 +167,10 @@ JSF Angular JS Angular 6  HTML CSS JavaScript Node JS Build Tools Cloud Architec
 					<div class="col-md-6 contact-fields">
 						<input type="email" name="personEmail" placeholder="Email" required="required"
 							id="personEmail">
+					</div>
+					<div class="contact-fields">
+						<input type="text" name="branch" value="Rajajinagar Branch" required="required"
+							id="branch">
 					</div>
 					<div class="contact-fields">
 						<input type="text" name="Subject" placeholder="Subject"
@@ -208,28 +227,45 @@ JSF Angular JS Angular 6  HTML CSS JavaScript Node JS Build Tools Cloud Architec
 	</div>
 	<div class="copyright-w3layouts">
 		<div class="container">
-			<p>&copy; 2019 X-Workz . All Rights Reserved</p>
+			<p>&copy; 2021 X-Workz . All Rights Reserved</p>
 		</div>
 	</div>
+     <div id="WAButton"></div>
+	<!-- Load Facebook SDK for JavaScript -->
+	<div id="fb-root"></div>
+	<script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            xfbml            : true,
+            version          : 'v9.0'
+          });
+        };
 
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+	<!-- Your Chat Plugin code -->
+	<div class="fb-customerchat" attribution=setup_tool
+		page_id="2031428617148886" theme_color="#ff7e29"
+		logged_in_greeting=" We are providing free courses , for a month. For more info please Chat with US"
+		logged_out_greeting=" We are providing free courses , for a month. For more info please Chat with US">
+	</div>
+	<!-- End of Chat Plugin code -->
+	
 	<a href="#home" class="scroll" id="toTop" style="display: block;">
 		<span id="toTopHover" style="opacity: 1;"> </span>
 	</a>
-	
-	<!-- Modal -->
-
-	<!-- <script src="js/jquery-2.2.3.min.js"></script>
-	<script src="js/main.js"></script>
-	<script src="js/easy-responsive-tabs.js"></script>
-	<script type="text/javascript" src="js/move-top.js"></script>
-	<script type="text/javascript" src="js/easing.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<script src="js/contact.js" type="module"></script>
-	<script src="js/aes.js"></script>
-	<script src="js/jqueryValidate.min.js"></script>
-	<script src="js/smtp.js" type="text/javascript"></script> -->
-			<script type="text/javascript" src="js/mainJS.js"></script>
-
+		
+<script type="text/javascript" src="js/mainJS.js"></script>		
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://rawcdn.githack.com/rafaelbotazini/floating-whatsapp/3d18b26d5c7d430a1ab0b664f8ca6b69014aed68/floating-wpp.min.css">
+<script type="text/javascript" src="https://rawcdn.githack.com/rafaelbotazini/floating-whatsapp/3d18b26d5c7d430a1ab0b664f8ca6b69014aed68/floating-wpp.min.js"></script>			
+<script type="text/javascript" src="js/whatsapp.js"></script>
 </body>
 
 </html>
