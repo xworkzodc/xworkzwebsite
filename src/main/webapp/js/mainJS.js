@@ -15297,13 +15297,13 @@ function() {
 
     $(document).ready(function() {
         $(".submitReff").click(function() {})
-    }), $(document).ready(function() {
+    }), 
         $("input.datepick").datepicker({
             minDate: 0
         }).on("change", function() {
             $("input.datepick").valid() && $("input.datepick").removeClass("invalid").addClass("success")
         }), $(".freshers").hide(), $(".exp").hide()
-    }), $(document).ready(function() {
+    , $(document).ready(function() {
         for (var e = "<option value=''>Select Year of passout</option>", t = 2010; 2022 >= t; t++) e = e + "<option >" + t + "</option>";
         $("#yearOfPassout").empty(), $("#yearOfPassout").append(e)
     }), $("select#empType").change(function() {
@@ -16024,14 +16024,15 @@ jQuery(document).ready(function(e) {
 function hideURLbar() {
     window.scrollTo(0, 1)
 }
-$(".counter").countUp(), $(window).load(function() {
+//$(".counter").countUp(), $(window).load(function() {
+$(document).ready(function(){
         $(".flexslider").flexslider({
             animation: "slide",
             start: function() {
                 $("body").removeClass("loading")
             }
         })
-    }), $(function() {
+    }), jQuery(function($) {
         $("#slider3").responsiveSlides({
             auto: !0,
             pager: !0,
@@ -16088,10 +16089,10 @@ $(".counter").countUp(), $(window).load(function() {
                 }), t > a.min ? e(n).fadeIn(a.inDelay) : e(n).fadeOut(a.Outdelay)
             })
         }
-    }(jQuery), $(document).ready(function() {
+    }(jQuery), //$(document).ready(function() {
         $().UItoTop({
             easingType: "easeOutQuart"
-        })
+        //})
     });
 
 
