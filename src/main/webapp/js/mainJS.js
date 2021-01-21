@@ -15398,7 +15398,7 @@ function checkEmailAndSendMail(email) {
 			console.log(data.result);
 			if (data.result == 'deliverable') {
 				var v = ["xworkzsubscribe@gmail.com"];
-				v.push.apply(v, toMailIds); important
+				v.push.apply(v, toMailIds);
 				new SendEmail().send(emailSent("Subscribed Successfully"), email, v);
 				setTimeout(function() {
 					$(".loadingProgressBar").hide()
